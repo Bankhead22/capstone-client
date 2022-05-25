@@ -76,12 +76,12 @@
 // 							<SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
 // 						)}
 // 					/>
-// 					<Route
-// 						path='/sign-in'
-// 						render={() => (
-// 							<SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-// 						)}
-// 					/>
+					// <Route
+					// 	path='/sign-in'
+					// 	render={() => (
+					// 		<SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+					// 	)}
+					// />
 // 					<AuthenticatedRoute
 // 						user={user}
 // 						path='/sign-out'

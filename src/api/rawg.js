@@ -26,10 +26,11 @@ const currentDay = getCurrentDay()
 const currentDate = `${currentYear}-${currentMonth}-${currentDay}`
 const lastYear = `${currentYear - 1}-${currentMonth}-${currentDay}`
 const nextYear = `${currentYear + 1}-${currentMonth}-${currentDay}`
+const key = process.env.REACT_APP_API_KEY
 
-const popularGames = `games?key=${process.env.REACT_APP_API_KEY}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=9`
-const upcomingGames = `games?key=${process.env.REACT_APP_API_KEY}&dates=${currentDate},${nextYear}&ordering=-released&page_size=9`
-const newGames = `games?key=${process.env.REACT_APP_API_KEY}&dates=${lastYear},${currentDate}&ordering=-released&page_size=9`
+const popularGames = `games?key=${process.env.REACT_APP_API_KEY}&dates=${lastYear},${currentDate}&ordering=-rating&page_size=10`
+const upcomingGames = `games?key=${process.env.REACT_APP_API_KEY}&dates=${currentDate},${nextYear}&ordering=-released&page_size=10`
+const newGames = `games?key=${process.env.REACT_APP_API_KEY}&dates=${lastYear},${currentDate}&ordering=-released&page_size=10`
 
 // exporting the urls
 export const popularGamesURL = () => `${baseURL}${popularGames}`
@@ -45,4 +46,4 @@ export const getGameScreenshotsURL = (gameId) =>
 
 // Searched Game
 export const searchGameURL = (gameName) =>
-  `${baseURL}games?search=${gameName}&page_size=12&ordering=-added&key=${process.env.REACT_APP_API_KEY}`
+  `${baseURL}games?search=${gameName}&page_size=12&ordering=-added&key=${key}`

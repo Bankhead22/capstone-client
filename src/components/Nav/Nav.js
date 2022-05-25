@@ -1,6 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
+
 const Nav = () => {
   const dispatch = useDispatch()
 
@@ -11,24 +14,44 @@ const Nav = () => {
   const { category } = useSelector((state) => state.category)
 
   return (
-    <header>
+    <StyledHeader>
       <button
         className={category === 'popular' ? 'current' : ''}
         onClick={() => changeCategory('popular')}>
-            Popular
+        Popular
       </button>
       <button
         className={category === 'upcoming' ? 'current' : ''}
         onClick={() => changeCategory('upcoming')}>
-            Upcoming
+        Upcoming
       </button>
       <button
         className={category === 'new' ? 'current' : ''}
         onClick={() => changeCategory('new')}>
-            New
+        New
       </button>
-    </header>
+    </StyledHeader>
   )
 }
+
+// Styling
+const StyledHeader = styled(motion.div)`
+    display: flex;
+    justify-content: space-evenly;
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      border-radius: 0.3rem;
+    }
+
+    .current {
+      color: #ff5e00;
+    }
+  `
 
 export default Nav

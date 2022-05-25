@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
+import { v4 as uuid } from 'uuid'
 
 import { signIn } from '../../api/auth'
-import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
+import { signInSuccess } from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -17,10 +18,31 @@ class SignIn extends Component {
     }
   }
 
-handleChange = (event) =>
+  setUser = (user) => this.setState({ user })
+
+  clearUser = () => this.setState({ user: null })
+
+  deleteAlert = (id) => {
+    this.setState((state) => {
+      return { msgAlerts: state.msgAlerts.filter((msg) => msg.id !== id) }
+    })
+  }
+
+  msgAlert = ({ heading, message, variant }) => {
+    const id = uuid()
+    this.setState((state) => {
+      return {
+        msgAlerts: [...state.msgAlerts, { heading, message, variant, id }]
+      }
+    })
+  }
+
+handleChange = (event) => {
   this.setState({
     [event.target.name]: event.target.value
   })
+  console.log(event.target.value)
+}
 
 onSignIn = (event) => {
   event.preventDefault()
@@ -39,11 +61,12 @@ onSignIn = (event) => {
     .then(() => history.push('/'))
     .catch((error) => {
       this.setState({ email: '', password: '' })
-      msgAlert({
-        heading: 'Sign In Failed with error: ' + error.message,
-        message: signInFailure,
-        variant: 'danger'
-      })
+      console.error(error)
+      // msgAlert({
+      //   heading: 'Sign In Failed with error: ' + error.message,
+      //   message: signInFailure,
+      //   variant: 'danger'
+      // })
     })
 }
 
@@ -77,7 +100,9 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <Button variant='primary' type='submit'>
+            Submit
+          </Button>
         </Form>
       </div>
     </div>

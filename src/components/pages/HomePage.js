@@ -8,6 +8,9 @@ import { loadGames } from '../../actions/gameActions'
 import Nav from '../Nav/Nav'
 import Game from '../Games/Game'
 
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
+
 const HomePage = () => {
   // getting the current location
   const location = useLocation()
@@ -50,40 +53,15 @@ const HomePage = () => {
   }, [category, popularGames])
 
   return (
-    <div>
-      <Nav />
-      <h1>{type?.name}</h1>
-      {searched.length
-        ? (
-          <div>
-            <h2>Searched Results</h2>
-            <div>
-              {/* {searched.map((game) => (
-                <Game
-                  name={game.name}
-                  released={game.released}
-                  id={game.id}
-                  image={game.background_image}
-                  key={game.id}
-                  location={location}
-                />
-              ))} */}
-            </div>
-          </div>
-        )
-        : (
-          <>
-            <h2>{type?.name}</h2>
-            <div>
-              {type.data
-              // ? type.data.map((game) => (
-              //   <h5 key={game.id}>
-              //     {game.name}
-              //     released: {game.released}
-              //   </h5>
-
-                // ))
-                ? type.data.map((game) => (
+    <>
+      <StyledList>
+        <Nav />
+        {searched.length
+          ? (
+            <>
+              <h2>Searched Results</h2>
+              <StyledGame>
+                {searched.map((game) => (
                   <Game
                     game={game}
                     name={game.name}
@@ -93,13 +71,56 @@ const HomePage = () => {
                     key={game.id}
                     location={location}
                   />
-                ))
-                : 'Loading...'}
-            </div>
-          </>
-        )}
-    </div>
+                ))}
+              </StyledGame>
+            </>
+          )
+          : (
+            <>
+              <h2>{type?.name}</h2>
+              <StyledGame>
+                {type.data
+                  ? type.data.map((game) => (
+                    <Game
+                      game={game}
+                      name={game.name}
+                      released={game.released}
+                      id={game.id}
+                      image={game.background_image}
+                      key={game.id}
+                      location={location}
+                    />
+                  ))
+                  : 'Loading...'}
+              </StyledGame>
+            </>
+          )}
+      </StyledList>
+    </>
   )
 }
+
+const StyledList = styled(motion.div)`
+padding: 0rem 1rem;
+margin-bottom: 2rem;
+h2 {
+    padding: 2rem 0rem;
+    font-size: 2.2rem;
+}
+
+@media screen and (min-width: 720px) {
+    padding: 0rem 5rem;
+}
+`
+const StyledGame = styled(motion.div)`
+min-height: 80vh;
+display: grid;
+grid-column-gap: 3rem;
+grid-row-gap: 5rem;
+justify-items: center;
+@media screen and (min-width: 420px) {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+`
 
 export default HomePage

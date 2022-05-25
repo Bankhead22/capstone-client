@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
     width: 0.5rem;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #FF5E00;
+    background-color: grey;
     border-radius: 3rem;
   }
   &::-webkit-scrollbar-track {
@@ -22,8 +22,8 @@ const GlobalStyles = createGlobalStyle`
     body{
         font-family: 'Montserrat', sans-serif;
         width: 100%;
-        background-color: #191f2b;
-        color:#fff;
+        background-color: #212529;
+        color: #fff;
 
     }
     h2{
@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
         padding: 1.5rem 0;
     }
     p{
-        color: #a1a1a1;
+        color: #d6d4d4;
         margin-bottom: 0.5rem;
         font-size: 1.2rem;
         line-height: 1.4;
