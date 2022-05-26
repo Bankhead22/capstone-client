@@ -1,54 +1,11 @@
-// import React, { useEffect } from 'react'
 
-// import { motion } from 'framer-motion'
-// import styled from 'styled-components'
-
-// // redux
-// import { useSelector } from 'react-redux'
-// import { useHistory } from 'react-router-dom'
-// // import { smallImage } from '../utils'
-
-// const GameDetail = () => {
-//   const history = useHistory()
-
-//   // exit detail
-//   const exitDetailHandler = (e) => {
-//     const element = e.target
-//     if (element.classList.contains('shadow')) {
-//       document.body.style.overflow = 'auto'
-//       history.push('/')
-//     }
-//   }
-
-//   useEffect(() => {
-//     document.body.style.overflow = 'hidden'
-//   }, [])
-//   // get data from redux store
-//   const { game, isLoading } = useSelector((state) => state.detail)
-
-//   return (
-//     <>
-//       <div onClick={exitDetailHandler}>
-//         {!isLoading && (
-//           <Info>
-//             <p>{game.description_raw}</p>
-//           </Info>
-//         )}
-//       </div>
-//     </>
-//   )
-// }
-
-// const Info = styled(motion.div)`
-// text-align: center;
-// `
-
-// // export default GameDetail
 import React, { useEffect } from 'react'
+
 // styling and animation
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import Stars from 'react-stars-display'
+
 // redux
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
@@ -69,7 +26,8 @@ import { SiIos, SiNintendoswitch, SiAtari, SiSega } from 'react-icons/si'
 
 const GameDetail = ({ pathId }) => {
   const history = useHistory()
-  // Exit Detail
+
+  // Exit game Detail
   const exitDetailHandler = (e) => {
     const element = e.target
     if (element.classList.contains('shadow')) {
@@ -77,6 +35,7 @@ const GameDetail = ({ pathId }) => {
       history.push('/')
     }
   }
+
   // get platform icons
   const getPlatformIcon = (platform, key) => {
     switch (platform) {
@@ -184,21 +143,6 @@ const GameDetail = ({ pathId }) => {
             <Description>
               <p>{game.description_raw}</p>
             </Description>
-            {/* <svg
-              onClick={() => {
-                exitDetailHandler()
-              }}
-              id='closeCard'
-              viewBox='0 0 51 55'
-              fill='none'
-              xmlns='http://www.w3.org/2000/svg'
-            >
-              <circle cx='25.5' cy='29.5' r='25.5' fill='#252525' />
-              <path
-                d='M29.8169 40.37L25.4139 33.821L20.8629 40.37L17.1999 38.335L23.0089 30.824L17.4959 24.016L21.6029 21.204L25.6359 27.457L30.0019 21.13L33.5909 23.35L28.0779 30.528L33.9239 37.558L29.8169 40.37Z'
-                fill='#e9e9e9'
-              />
-            </svg> */}
 
             <Media>
               <motion.img
@@ -224,6 +168,7 @@ const GameDetail = ({ pathId }) => {
   )
 }
 
+// styling
 const CardShadow = styled(motion.div)`
   width: 100%;
   min-height: 100vh;

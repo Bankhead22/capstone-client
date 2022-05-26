@@ -1,14 +1,19 @@
 import React from 'react'
+
+// redux
 import { useDispatch, useSelector } from 'react-redux'
 
+// styling
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 const Nav = () => {
+  // fetch categories
   const dispatch = useDispatch()
 
-  const changeCategory = (cate) => {
-    dispatch({ type: 'CHANGE_CATEGORY', payload: { category: cate } })
+  // change category
+  const changeCategory = (category) => {
+    dispatch({ type: 'CHANGE_CATEGORY', payload: { category: category } })
     dispatch({ type: 'CLEAR_SEARCHED' })
   }
   const { category } = useSelector((state) => state.category)

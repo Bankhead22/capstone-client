@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { v4 as uuid } from 'uuid'
+// import { v4 as uuid } from 'uuid'
 
 import { signIn } from '../../api/auth'
-import { signInSuccess } from '../AutoDismissAlert/messages'
+// import { signInSuccess } from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -22,42 +22,41 @@ class SignIn extends Component {
 
   clearUser = () => this.setState({ user: null })
 
-  deleteAlert = (id) => {
-    this.setState((state) => {
-      return { msgAlerts: state.msgAlerts.filter((msg) => msg.id !== id) }
-    })
-  }
+  // deleteAlert = (id) => {
+  //   this.setState((state) => {
+  //     return { msgAlerts: state.msgAlerts.filter((msg) => msg.id !== id) }
+  //   })
+  // }
 
-  msgAlert = ({ heading, message, variant }) => {
-    const id = uuid()
-    this.setState((state) => {
-      return {
-        msgAlerts: [...state.msgAlerts, { heading, message, variant, id }]
-      }
-    })
-  }
+  // msgAlert = ({ heading, message, variant }) => {
+  //   const id = uuid()
+  //   this.setState((state) => {
+  //     return {
+  //       msgAlerts: [...state.msgAlerts, { heading, message, variant, id }]
+  //     }
+  //   })
+  // }
 
 handleChange = (event) => {
   this.setState({
     [event.target.name]: event.target.value
   })
-  console.log(event.target.value)
 }
 
 onSignIn = (event) => {
   event.preventDefault()
 
-  const { msgAlert, history, setUser } = this.props
+  const { history, setUser } = this.props
 
   signIn(this.state)
     .then((res) => setUser(res.data.user))
-    .then(() =>
-      msgAlert({
-        heading: 'Sign In Success',
-        message: signInSuccess,
-        variant: 'success'
-      })
-    )
+    // .then(() =>
+    //   msgAlert({
+    //     heading: 'Sign In Success',
+    //     message: signInSuccess,
+    //     variant: 'success'
+    //   })
+    // )
     .then(() => history.push('/'))
     .catch((error) => {
       this.setState({ email: '', password: '' })

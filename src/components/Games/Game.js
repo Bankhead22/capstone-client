@@ -1,21 +1,41 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 // Redux
 import { useDispatch } from 'react-redux'
-
-import { smallImage } from '../../utils'
 import { loadGameDetails } from '../../actions/gameDetails'
 
+// styling
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { FaPlus } from 'react-icons/fa'
 
-const Game = ({ game }) => {
-  //   const stringPathId = game.id.toString()
+// images
+import { smallImage } from '../../utils'
+import { createGame } from '../../api/game'
+
+const Game = ({ game, user }) => {
+  // const { user } = useSelector((state) => state.user)
+  // const { libraryGames } = useSelector((state) => state.library)
+  const history = useHistory()
+  // const stringPathId = id.toString()
+  // const [gameInLibrary, setGameInLibrary] = useState(
+  // libraryGames.some((game) => game.id === id.toString())
+  // )
+
+  // load details
   const dispatch = useDispatch()
 
   const loadDetailHandler = () => {
     dispatch(loadGameDetails(game.id))
+  }
+  const addToLibrary = async (e) => {
+    if (user) {
+      // send game data to db and add to library
+      createGame(game, user)
+    } else {
+      history.push('/sign-in')
+    }
   }
 
   return (
@@ -27,10 +47,18 @@ const Game = ({ game }) => {
           <p> {game.released}</p>
         </Link>
       </div>
+      <div>
+        <FaPlus
+          className='icon'
+          title='Add to Library'
+          onClick={addToLibrary}
+        />
+      </div>
     </StyledGame>
   )
 }
 
+// styling
 const StyledGame = styled(motion.div)`
     background-color: #343a40;
     min-height: 30vh;
@@ -42,6 +70,8 @@ const StyledGame = styled(motion.div)`
     h3,
     p {
       padding: 0.5rem 0.4rem;
+      
+
     }
     div {
       display: flex;
@@ -59,6 +89,9 @@ const StyledGame = styled(motion.div)`
       font-size: 1.2rem;
       color: #ff5e00;
       margin-right: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .icon:hover {
       color: #ff5e00;
@@ -74,6 +107,6 @@ const StyledGame = styled(motion.div)`
 //   .remove {
 //     color: red;
 //   }
-// `;
+// `
 
 export default Game

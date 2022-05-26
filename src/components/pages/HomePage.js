@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
 
+// redux
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
-
 import { loadGames } from '../../actions/gameActions'
 
+// components
 import Nav from '../Nav/Nav'
 import Game from '../Games/Game'
 
+// styling
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
-const HomePage = () => {
+const HomePage = ({ user }) => {
   // getting the current location
   const location = useLocation()
+  console.log(user)
 
   // Fetch Games from api and storing in the redux store
   const dispatch = useDispatch()
@@ -31,23 +34,20 @@ const HomePage = () => {
     dispatch(loadGames())
   }, [dispatch])
 
-  // let type;
+  // set type;
   useEffect(() => {
     switch (category) {
     case 'popular':
       setType(popularGames)
-      console.log(type.data)
       // type = popularGames;
       break
     case 'upcoming':
       // type = upcomingGames;
       setType(upcomingGames)
-      console.log(type.data)
       break
     case 'new':
       // type = newGames;
       setType(newGames)
-      console.log(type.data)
       break
     }
   }, [category, popularGames])
@@ -63,6 +63,7 @@ const HomePage = () => {
               <StyledGame>
                 {searched.map((game) => (
                   <Game
+                    user={user}
                     game={game}
                     name={game.name}
                     released={game.released}
@@ -82,6 +83,7 @@ const HomePage = () => {
                 {type.data
                   ? type.data.map((game) => (
                     <Game
+                      user={user}
                       game={game}
                       name={game.name}
                       released={game.released}

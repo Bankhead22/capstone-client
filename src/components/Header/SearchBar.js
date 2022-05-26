@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-// styles
+
+// styling
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 // import { fadeIn } from './../animations'
 import { FaSearch } from 'react-icons/fa'
 import { SiNintendogamecube } from 'react-icons/si'
 
-// redux and routes
+// Redux and routes
 import { fetchSearch } from '../../actions/gameActions'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router'
@@ -40,6 +41,7 @@ const SearchBar = () => {
         <h1>GameGuide</h1>
       </Logo>
 
+      {/* Search bar */}
       <form className='search'>
         <input
           value={textInput}

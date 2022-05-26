@@ -2,6 +2,8 @@ import React, { Fragment } from 'react'
 // import Nav from 'react-bootstrap/Nav'
 // import Navbar from 'react-bootstrap/Navbar'
 import { Link, NavLink } from 'react-router-dom'
+
+// components
 import SearchBar from './SearchBar'
 
 import styled from 'styled-components'
@@ -26,29 +28,23 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    {/* <NavLink exact to='/' className='nav-link'>Home</NavLink> */}
+    <NavLink exact to='/' className='nav-link'>Home</NavLink>
   </Fragment>
 )
 
 const Header = ({ user }) => (
   <StyledNav initial='hidden' animate='show'>
     <SearchBar />
-    {/* <Navbar.Brand> */}
     <Link className='logo-container' to='/'></Link>
-    {/* </Navbar.Brand>
-    <Navbar.Toggle aria-controls='basic-navbar-nav' />
-    <Navbar.Collapse id='basic-navbar-nav'> */}
-    <StyledNav className='ml-auto'>
-      {user && (
-        <span className='navbar-text mr-2'>Welcome, {user.email}</span>
-      )}
-      {alwaysOptions}
-      {user ? authenticatedOptions : unauthenticatedOptions}
-    </StyledNav>
-    {/* </Navbar.Collapse> */}
+    {user && (
+      <span className='navbar-text mr-2'>Welcome, {user.email}</span>
+    )}
+    {alwaysOptions}
+    {user ? authenticatedOptions : unauthenticatedOptions}
   </StyledNav>
 )
 
+// Styling
 const StyledNav = styled(motion.nav)`
   padding: 2rem 2rem;
   text-align: center;

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { changePassword } from '../../api/auth'
-import { changePasswordSuccess, changePasswordFailure } from '../AutoDismissAlert/messages'
+// import { changePasswordSuccess, changePasswordFailure } from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -25,24 +25,25 @@ handleChange = (event) =>
 onChangePassword = (event) => {
   event.preventDefault()
 
-  const { msgAlert, history, user } = this.props
+  const { history, user } = this.props
 
   changePassword(this.state, user)
-    .then(() =>
-      msgAlert({
-        heading: 'Change Password Success',
-        message: changePasswordSuccess,
-        variant: 'success'
-      })
-    )
+    // .then(() =>
+    //   msgAlert({
+    //     heading: 'Change Password Success',
+    //     message: changePasswordSuccess,
+    //     variant: 'success'
+    //   })
+    // )
     .then(() => history.push('/'))
     .catch((error) => {
       this.setState({ oldPassword: '', newPassword: '' })
-      msgAlert({
-        heading: 'Change Password Failed with error: ' + error.message,
-        message: changePasswordFailure,
-        variant: 'danger'
-      })
+      console.error(error)
+    //   msgAlert({
+    //     heading: 'Change Password Failed with error: ' + error.message,
+    //     message: changePasswordFailure,
+    //     variant: 'danger'
+    //   })
     })
 }
 
