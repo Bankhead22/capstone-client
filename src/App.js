@@ -38,7 +38,7 @@ function App () {
         <AuthenticatedRoute
           user={user}
           path='/sign-out'
-          render={() => <SignOut user={user} />}
+          render={() => <SignOut user={user} setUser={setUser}/>}
         />
         <AuthenticatedRoute
           setUser={setUser}

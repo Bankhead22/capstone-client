@@ -1,8 +1,3 @@
-Video game searcher app
-
-# User Stories:
-
-
 
 <div id="top"></div>
 
@@ -16,14 +11,14 @@ GameGuide is an application that allows user to view latest and upcoming video g
 
   <p align="center">
     <br/>
-    <a href="https://github.com/Debug-Thugs-Rock/front-end-client"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Bankhead22/capstone-client"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="http://debug-thugs-rock.github.io/front-end-client/">View Demo</a>
+    <a href="https://bankhead22.github.io/capstone-client/">View Demo</a>
     ·
-    <a href="https://github.com/Debug-Thugs-Rock/front-end-client/issues">Report Bug</a>
+    <a href="https://github.com/Bankhead22/capstone-client/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Debug-Thugs-Rock/front-end-client/issues">Request Feature</a>
+    <a href="https://github.com/Bankhead22/capstone-client/issues">Request Feature</a>
   </p>
 </div>
 
@@ -59,9 +54,9 @@ GameGuide is an application that allows user to view latest and upcoming video g
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Our team collaborated utilizing SCRUM/AGILE methodology. This application was integrated using a [back-end](https://github.com/Debug-Thugs-Rock/back-end-server) api that allows a user to sign up, sign in, change password, and sign out. Once signed in, the user is able to create a new post, entering the post title and content on a form. The logic, user and post forms, and styling were handled locally on the client through our own code. The design was inspired by bubbles, so we used light colors and rounded styling. 
+Video game searching app powered by [rawg.io](rawg.io) api to supply the information about the video games. Integrated a [back-end](https://github.com/Bankhead22/capstone-api) api that allows a user to sign up, sign in, change password, and sign out. Once signed in, the user is able to add a game to their library. The logic and styling were handled locally on the client through my own code. The design was kept simple to give users an easy experience.
 
-With our bubble design in mind, this [wireframe](images/wireframe.jpg) was developed before starting on development. The repository for the back-end can be viewed [here](https://github.com/Debug-Thugs-Rock/back-end-server).
+With a minimal design in mind, this [wireframe]() was developed before starting on development. The repository for the back-end can be viewed [here](https://github.com/Bankhead22/capstone-api).
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -109,14 +104,14 @@ The following technologies were used to produce our application:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To try the deployed version of this application, click this [link](http://debug-thugs-rock.github.io/front-end-client/). To try locally, follow <a href="#installation">installation </a>steps below.
+To try the deployed version of this application, click this [link](https://bankhead22.github.io/capstone-client/). To try locally, follow <a href="#installation">installation </a>steps below.
 
 
 ### Installation
 
 1. Fork and clone this repository
    ```sh
-   git clone https://github.com/Debug-Thugs-Rock/front-end-client.git
+   git clone https://github.com/Bankhead22/capstone-client.git
    ```
 2. Install NPM packages
    ```sh
@@ -134,7 +129,7 @@ To try the deployed version of this application, click this [link](http://debug-
 
 
 ## Future Features
-* Allow users to follow other users and view a newsfeed of those users' posts 
+* Different options for added games in the library
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -168,7 +163,7 @@ git push origin newFeature
 <!-- LICENSE -->
 ## License
 
- See [LICENSE](https://github.com/Debug-Thugs-Rock/front-end-client/blob/main/src/LICENSE) for more information.
+ See [LICENSE](https://github.com/Bankhead22/capstone-client/blob/main/src/LICENSE) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -179,6 +174,6 @@ git push origin newFeature
 
 Demetrius Bankhead - [Linkedin](https://www.linkedin.com/in/dbankhead/) - djbankhead0@gmail.com
 
-Project Link: [https://github.com/Debug-Thugs-Rock/front-end-client](https://github.com/Debug-Thugs-Rock/front-end-client)
+Project Link: [https://github.com/Bankhead22/capstone-client](https://github.com/Bankhead22/capstone-client)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

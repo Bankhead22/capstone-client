@@ -16,7 +16,6 @@ import { motion } from 'framer-motion'
 const HomePage = ({ user }) => {
   // getting the current location
   const location = useLocation()
-  console.log(user)
 
   // Fetch Games from api and storing in the redux store
   const dispatch = useDispatch()
@@ -110,9 +109,7 @@ h2 {
     font-size: 2.2rem;
 }
 
-@media screen and (min-width: 720px) {
-    padding: 0rem 5rem;
-}
+
 `
 const StyledGame = styled(motion.div)`
 min-height: 80vh;

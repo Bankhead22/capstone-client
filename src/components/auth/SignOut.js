@@ -5,7 +5,7 @@ import { signOut } from '../../api/auth'
 // import { signOutSuccess } from '../AutoDismissAlert/messages'
 class SignOut extends Component {
   componentDidMount () {
-    const { history, user } = this.props
+    const { history, user, setUser } = this.props
     signOut(user)
     // .finally(() =>
     //   msgAlert({
@@ -14,6 +14,7 @@ class SignOut extends Component {
     //     variant: 'success'
     //   })
     // )
+      .then(() => setUser(null))
       .catch((err) => console.error(err))
       .finally(() => history.push('/'))
       // .finally(() => this.setState({ user: null }))

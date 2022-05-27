@@ -91,7 +91,7 @@ span {
     cursor: pointer;
 }
 input {
-    width: 80%;
+    width: 100%;
     padding: 0.5rem 1rem;
     margin-top: 1rem;
     font-size: 1.2rem;

@@ -14,7 +14,7 @@ export const indexGames = (user) => {
 export const deleteGame = (id, user) => {
   return axios({
     method: 'DELETE',
-    url: apiUrl + '/library/' + id,
+    url: apiUrl + '/library',
     headers: {
       Authorization: `Bearer ${user.token}`
     }

@@ -28,7 +28,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <NavLink exact to='/' className='nav-link'>Home</NavLink>
+    {/* <NavLink exact to='/' className='nav-link'>Home</NavLink> */}
   </Fragment>
 )
 
@@ -37,7 +37,7 @@ const Header = ({ user }) => (
     <SearchBar />
     <Link className='logo-container' to='/'></Link>
     {user && (
-      <span className='navbar-text mr-2'>Welcome, {user.email}</span>
+      <p className='navbar-text mr-2'>Welcome, {user.email}</p>
     )}
     {alwaysOptions}
     {user ? authenticatedOptions : unauthenticatedOptions}

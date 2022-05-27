@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 // Redux
@@ -8,20 +8,21 @@ import { loadGameDetails } from '../../actions/gameDetails'
 // styling
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { FaPlus } from 'react-icons/fa'
+import { FaPlus, FaMinus } from 'react-icons/fa'
 
 // images
 import { smallImage } from '../../utils'
-import { createGame } from '../../api/game'
+
+// api
+import { createGame, deleteGame } from '../../api/game'
 
 const Game = ({ game, user }) => {
   // const { user } = useSelector((state) => state.user)
   // const { libraryGames } = useSelector((state) => state.library)
   const history = useHistory()
   // const stringPathId = id.toString()
-  // const [gameInLibrary, setGameInLibrary] = useState(
-  // libraryGames.some((game) => game.id === id.toString())
-  // )
+  const [InLibrary, setInLibrary] = useState(false
+  )
 
   // load details
   const dispatch = useDispatch()
@@ -30,12 +31,19 @@ const Game = ({ game, user }) => {
     dispatch(loadGameDetails(game.id))
   }
   const addToLibrary = async (e) => {
+    setInLibrary(true)
     if (user) {
       // send game data to db and add to library
       createGame(game, user)
     } else {
       history.push('/sign-in')
     }
+  }
+
+  const removeFromLib = () => {
+    deleteGame(game.id, user)
+      .then(() => setInLibrary(false))
+      .catch((err) => console.log(err))
   }
 
   return (
@@ -48,11 +56,25 @@ const Game = ({ game, user }) => {
         </Link>
       </div>
       <div>
-        <FaPlus
-          className='icon'
-          title='Add to Library'
-          onClick={addToLibrary}
-        />
+        {InLibrary
+          ? (
+            <div>
+              <FaMinus
+                className='icon'
+                title='Remove from Library'
+                onClick={removeFromLib}
+              />
+            </div>
+          )
+          : (
+            !InLibrary && (
+              <FaPlus
+                className='icon'
+                title='Add to Library'
+                onClick={addToLibrary}
+              />
+            )
+          )}
       </div>
     </StyledGame>
   )
@@ -83,7 +105,7 @@ const StyledGame = styled(motion.div)`
       width: 100%;
       height: 25vh;
       object-fit: cover;
-      aspect-ratio: 16/10;
+      aspect-ratio: 16;
     }
     .icon {
       font-size: 1.2rem;
@@ -98,15 +120,5 @@ const StyledGame = styled(motion.div)`
     }
 
   `
-// const StyledSelect = styled.select`
-//   background-color: #ffffff;
-//   border: none;
-//   padding: 0.2rem 1rem;
-//   border-radius: 0.2rem;
-//   margin-right: 1rem;
-//   .remove {
-//     color: red;
-//   }
-// `
 
 export default Game
