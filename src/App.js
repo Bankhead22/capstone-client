@@ -26,19 +26,19 @@ function App () {
   return (
     <div className='App'>
       <GlobalStyles />
-      <Header user={user}/>
+      <Header user={user} />
       <Switch location={background || location}>
         <Route exact path={['/game/:id', '/']}>
-          <HomePage setUser={setUser} user={user}/>
+          <HomePage setUser={setUser} user={user} />
         </Route>
         <Route path='/sign-up' component={SignUp} exact />
-        <Route path='/sign-in' exact >
+        <Route path='/sign-in' exact>
           <SignIn setUser={setUser} user={user} />
         </Route>
         <AuthenticatedRoute
           user={user}
           path='/sign-out'
-          render={() => <SignOut user={user} setUser={setUser}/>}
+          render={() => <SignOut user={user} setUser={setUser} />}
         />
         <AuthenticatedRoute
           setUser={setUser}
@@ -47,6 +47,7 @@ function App () {
           render={() => <ChangePassword user={user} />}
         />
         <AuthenticatedRoute
+          setUser={setUser}
           user={user}
           path='/library'
           render={() => <Library user={user} />}
