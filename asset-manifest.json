@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/capstone-client/static/css/main.ae788e91.chunk.css",
-    "main.js": "/capstone-client/static/js/main.63af4aad.chunk.js",
-    "main.js.map": "/capstone-client/static/js/main.63af4aad.chunk.js.map",
-    "runtime-main.js": "/capstone-client/static/js/runtime-main.74194634.js",
-    "runtime-main.js.map": "/capstone-client/static/js/runtime-main.74194634.js.map",
-    "static/js/2.16f7ceed.chunk.js": "/capstone-client/static/js/2.16f7ceed.chunk.js",
-    "static/js/2.16f7ceed.chunk.js.map": "/capstone-client/static/js/2.16f7ceed.chunk.js.map",
-    "index.html": "/capstone-client/index.html",
-    "static/css/main.ae788e91.chunk.css.map": "/capstone-client/static/css/main.ae788e91.chunk.css.map",
-    "static/js/2.16f7ceed.chunk.js.LICENSE.txt": "/capstone-client/static/js/2.16f7ceed.chunk.js.LICENSE.txt"
+    "main.css": "/gameguide-client/static/css/main.ae788e91.chunk.css",
+    "main.js": "/gameguide-client/static/js/main.bf7f1cbc.chunk.js",
+    "main.js.map": "/gameguide-client/static/js/main.bf7f1cbc.chunk.js.map",
+    "runtime-main.js": "/gameguide-client/static/js/runtime-main.1e9b50b9.js",
+    "runtime-main.js.map": "/gameguide-client/static/js/runtime-main.1e9b50b9.js.map",
+    "static/js/2.b3d294b7.chunk.js": "/gameguide-client/static/js/2.b3d294b7.chunk.js",
+    "static/js/2.b3d294b7.chunk.js.map": "/gameguide-client/static/js/2.b3d294b7.chunk.js.map",
+    "index.html": "/gameguide-client/index.html",
+    "static/css/main.ae788e91.chunk.css.map": "/gameguide-client/static/css/main.ae788e91.chunk.css.map",
+    "static/js/2.b3d294b7.chunk.js.LICENSE.txt": "/gameguide-client/static/js/2.b3d294b7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.74194634.js",
-    "static/js/2.16f7ceed.chunk.js",
+    "static/js/runtime-main.1e9b50b9.js",
+    "static/js/2.b3d294b7.chunk.js",
     "static/css/main.ae788e91.chunk.css",
-    "static/js/main.63af4aad.chunk.js"
+    "static/js/main.bf7f1cbc.chunk.js"
   ]
 }
