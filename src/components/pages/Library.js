@@ -10,7 +10,7 @@ import { indexGames } from '../../api/game'
 
 // components
 // import Nav from '../Nav/Nav'
-import Game from '../StyledGame/Game'
+import Game from '../Games/Game'
 
 // styling
 import styled from 'styled-components'
