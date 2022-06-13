@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
 // Redux
@@ -8,20 +8,21 @@ import { loadGameDetails } from '../../actions/gameDetails'
 // styling
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
-import { FaPlus, FaMinus } from 'react-icons/fa'
+import { FaPlus } from 'react-icons/fa'
 
 // images
 import { smallImage } from '../../utils'
 
 // api
-import { createGame, deleteGame } from '../../api/game'
+import { createGame } from '../../api/game'
 
 const Game = ({ game, user }) => {
   // const { user } = useSelector((state) => state.user)
   // const { libraryGames } = useSelector((state) => state.library)
   const history = useHistory()
   // const stringPathId = id.toString()
-  const [InLibrary, setInLibrary] = useState(false
+  const [category, setCategory] = useState(game.type)
+  const [gameInLibrary, setGameInLibrary] = useState(false
   )
 
   // load details
@@ -30,21 +31,52 @@ const Game = ({ game, user }) => {
   const loadDetailHandler = () => {
     dispatch(loadGameDetails(game.id))
   }
+
+  // add game to library
   const addToLibrary = async (e) => {
-    setInLibrary(true)
+    setGameInLibrary(true)
+    // if signed in
     if (user) {
       // send game data to db and add to library
-      createGame(game, user)
+      try {
+        await createGame(game, user)
+        // console.log(user)
+      } catch (error) {
+        // console.log(error)
+
+      }
     } else {
       history.push('/sign-in')
     }
   }
 
-  const removeFromLib = () => {
-    deleteGame(game.id, user)
-      .then(() => setInLibrary(false))
-      .catch((err) => console.log(err))
+  const handleCategoryChange = (e) => {
+    e.stopPropagation()
+    setCategory(e.target.value)
   }
+
+  useEffect(() => {
+    // update and remove library data
+    // change category of library data
+    async function setLibraryData () {
+      if (game.inLibrary) {
+        if (category === 'remove') {
+          // user is undefined(reading token). dont know how to solve issue
+
+          // await deleteGame(game.id, user)
+          //   .then(() => setGameInLibrary(false))
+          //   .catch((err) => console.log(err))
+
+          // await console.log(game)
+          // await console.log(user)
+        } else {
+          // await updateGame(user, { type: category })
+          // await updateGame(user, game)
+        }
+      }
+    }
+    setLibraryData()
+  }, [category])
 
   return (
     <StyledGame>
@@ -56,18 +88,21 @@ const Game = ({ game, user }) => {
         </Link>
       </div>
       <div>
-        {InLibrary
+        {game.inLibrary
           ? (
             <div>
-              <FaMinus
-                className='icon'
-                title='Remove from Library'
-                onClick={removeFromLib}
-              />
+              <StyledSelect value={category} onChange={handleCategoryChange}>
+                <option value='wishlist'>Wishlist</option>
+                <option value='current'>Currently Playing</option>
+                <option value='completed'>Completed</option>
+                <option className='remove' value='remove'>
+                Remove from Library
+                </option>
+              </StyledSelect>
             </div>
           )
           : (
-            !InLibrary && (
+            !gameInLibrary && (
               <FaPlus
                 className='icon'
                 title='Add to Library'
@@ -105,7 +140,7 @@ const StyledGame = styled(motion.div)`
       width: 100%;
       height: 25vh;
       object-fit: cover;
-      aspect-ratio: 16;
+      aspect-ratio: 16/9;
     }
     .icon {
       font-size: 1.2rem;
@@ -120,5 +155,15 @@ const StyledGame = styled(motion.div)`
     }
 
   `
+const StyledSelect = styled.select`
+      background-color: #ffffff;
+      border: none;
+      padding: 0.2rem 1rem;
+      border-radius: 0.2rem;
+      margin-right: 1rem;
+      .remove {
+        color: red;
+      }
+    `
 
 export default Game

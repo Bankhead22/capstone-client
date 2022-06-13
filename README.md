@@ -11,14 +11,14 @@ GameGuide is an application that allows user to view latest and upcoming video g
 
   <p align="center">
     <br/>
-    <a href="https://github.com/Bankhead22/capstone-client"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Bankhead22/gameguide-client"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://bankhead22.github.io/capstone-client/">View Demo</a>
+    <a href="https://bankhead22.github.io/gameguide-client/">View Demo</a>
     ·
-    <a href="https://github.com/Bankhead22/capstone-client/issues">Report Bug</a>
+    <a href="https://github.com/Bankhead22/gameguide-client/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Bankhead22/capstone-client/issues">Request Feature</a>
+    <a href="https://github.com/Bankhead22/gameguide-client/issues">Request Feature</a>
   </p>
 </div>
 
@@ -54,9 +54,9 @@ GameGuide is an application that allows user to view latest and upcoming video g
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Video game searching app powered by [rawg.io](rawg.io) api to supply the information about the video games. Integrated a [back-end](https://github.com/Bankhead22/capstone-api) api that allows a user to sign up, sign in, change password, and sign out. Once signed in, the user is able to add a game to their library. The logic and styling were handled locally on the client through my own code. The design was kept simple to give users an easy experience.
+Video game searching app powered by [rawg.io](rawg.io) api to supply the information about the video games. Integrated a [back-end](https://github.com/Bankhead22/gameguide-api) api that allows a user to sign up, sign in, change password, and sign out. Once signed in, the user is able to add a game to their library. The logic and styling were handled locally on the client through my own code. The design was kept simple to give users an easy experience.
 
-With a minimal design in mind, this [wireframe]() was developed before starting on development. The repository for the back-end can be viewed [here](https://github.com/Bankhead22/capstone-api).
+With a minimal design in mind, this [wireframe](images/wireframe.jpeg) was developed before starting on development. The repository for the back-end can be viewed [here](https://github.com/Bankhead22/gameguide-api).
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -94,9 +94,7 @@ The following technologies were used to produce our application:
 * As a signed-in user I want to be able to add any game to a list
 * As a signed-in user I want to be able to view any game on my list
 * As a signed-in user I want to be able to remove any game from my list
-* As a signed-in user I want to be able to comment on any game
-* As a signed-in user I want to be able to remove my comment on any game
-* As a signed-in user I want to be able to edit my comment on any game
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -104,14 +102,14 @@ The following technologies were used to produce our application:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To try the deployed version of this application, click this [link](https://bankhead22.github.io/capstone-client/). To try locally, follow <a href="#installation">installation </a>steps below.
+To try the deployed version of this application, click this [link](https://bankhead22.github.io/gameguide-client/). To try locally, follow <a href="#installation">installation </a>steps below.
 
 
 ### Installation
 
 1. Fork and clone this repository
    ```sh
-   git clone https://github.com/Bankhead22/capstone-client.git
+   git clone https://github.com/Bankhead22/gameguide-client.git
    ```
 2. Install NPM packages
    ```sh
@@ -130,6 +128,9 @@ To try the deployed version of this application, click this [link](https://bankh
 
 ## Future Features
 * Different options for added games in the library
+* As a signed-in user I want to be able to comment on any game
+* As a signed-in user I want to be able to remove my comment on any game
+* As a signed-in user I want to be able to edit my comment on any game
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -163,7 +164,7 @@ git push origin newFeature
 <!-- LICENSE -->
 ## License
 
- See [LICENSE](https://github.com/Bankhead22/capstone-client/blob/main/src/LICENSE) for more information.
+ See [LICENSE](https://github.com/Bankhead22/gameguide-client/blob/main/src/LICENSE) for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -174,6 +175,6 @@ git push origin newFeature
 
 Demetrius Bankhead - [Linkedin](https://www.linkedin.com/in/dbankhead/) - djbankhead0@gmail.com
 
-Project Link: [https://github.com/Bankhead22/capstone-client](https://github.com/Bankhead22/capstone-client)
+Project Link: [https://github.com/Bankhead22/gameguide-client](https://github.com/Bankhead22/gameguide-client)
 
 <p align="right">(<a href="#top">back to top</a>)</p>

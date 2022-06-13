@@ -1,6 +1,6 @@
 {
-  "homepage": "http://Bankhead22.github.io/capstone-client",
-  "name": "capstone-client",
+  "homepage": "http://Bankhead22.github.io/gameguide-client",
+  "name": "gameguide-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
