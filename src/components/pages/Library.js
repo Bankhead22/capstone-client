@@ -10,7 +10,7 @@ import { indexGames } from '../../api/game'
 
 // components
 // import Nav from '../Nav/Nav'
-import Game from '../Games/Game'
+import Game from '../StyledGame/Game'
 
 // styling
 import styled from 'styled-components'
@@ -21,68 +21,16 @@ import { IoLogoGameControllerB } from 'react-icons/io'
 
 const Library = ({ user }) => {
   // const { libraryGames } = useSelector((state) => state.library)
+  // const location = useLocation()
 
   const [games, setGames] = useState([])
-  // const [inLibrary, setInLibrary] = useState(true)
+  // const [gameInLibrary, setGameInLibrary] = useState(true)
 
   useEffect(() => {
-    // if (inLibrary === false) { setInLibrary(true) }
     indexGames(user)
       .then((res) => setGames(res.data.games))
   }, [])
 
-  //   return (
-  //     <>
-  //       <StyledList>
-  //         <h3>{user.email}</h3>
-  //         { games
-  //           ? (
-  //             <>
-  //               <h2>Library</h2>
-  //               <StyledGame>
-  //                 {games.map((game) => (
-  //                   <Game
-  //                     game={game}
-  //                     name={game.name}
-  //                     released={game.released}
-  //                     id={game.id}
-  //                     image={game.background_image}
-  //                     key={game.id}
-  //                   />
-  //                 ))}
-
-  //               </StyledGame>
-  //             </>
-  //           )
-  //           : 'Needs more games... Add some'}
-
-  //       </StyledList>
-  //     </>
-  //   )
-  // }
-
-  // const StyledList = styled(motion.div)`
-  //         padding: 0rem 1rem;
-  //         margin-bottom: 2rem;
-  //         h2 {
-  //             padding: 2rem 0rem;
-  //             font-size: 2.2rem;
-  //         }
-
-  //         @media screen and (min-width: 720px) {
-  //             padding: 0rem 5rem;
-  //         }
-  // `
-  // const StyledGame = styled(motion.div)`
-  //             min-height: 80vh;
-  //             display: grid;
-  //             grid-column-gap: 3rem;
-  //             grid-row-gap: 5rem;
-  //             justify-items: center;
-  //             @media screen and (min-width: 420px) {
-  //                 grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  //             }
-  //             `
   return (
     <DashboardContainer>
       <div className="user-details">
@@ -92,7 +40,7 @@ const Library = ({ user }) => {
       <h3>
         <FaHeart /> Wishlist
       </h3>
-      <Games>
+      <StyledGame>
         {games.map(
           (game) =>
             game.type === 'wishlist' && (
@@ -109,11 +57,11 @@ const Library = ({ user }) => {
               />
             )
         )}
-      </Games>
+      </StyledGame>
       <h3>
         <IoLogoGameControllerB /> Currently Playing
       </h3>
-      <Games>
+      <StyledGame>
         {games.map(
           (game) =>
             game.type === 'current' && (
@@ -129,11 +77,11 @@ const Library = ({ user }) => {
               />
             )
         )}
-      </Games>
+      </StyledGame>
       <h3>
         <FaMedal /> Completed
       </h3>
-      <Games>
+      <StyledGame>
         {games.map(
           (game) =>
             game.type === 'completed' && (
@@ -149,7 +97,7 @@ const Library = ({ user }) => {
               />
             )
         )}
-      </Games>
+      </StyledGame>
     </DashboardContainer>
   )
 }
@@ -176,7 +124,7 @@ const DashboardContainer = styled.div`
   }
 `
 
-const Games = styled(motion.div)`
+const StyledGame = styled(motion.div)`
   width: 100%;
   display: flex;
   flex-wrap: wrap;

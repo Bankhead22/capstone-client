@@ -31,6 +31,8 @@ const Game = ({ game, user }) => {
   const loadDetailHandler = () => {
     dispatch(loadGameDetails(game.id))
   }
+
+  // add game to library
   const addToLibrary = async (e) => {
     setGameInLibrary(true)
     // if signed in
@@ -38,8 +40,10 @@ const Game = ({ game, user }) => {
       // send game data to db and add to library
       try {
         await createGame(game, user)
+        // console.log(user)
       } catch (error) {
-        console.log(error)
+        // console.log(error)
+
       }
     } else {
       history.push('/sign-in')
@@ -52,18 +56,22 @@ const Game = ({ game, user }) => {
   }
 
   useEffect(() => {
+    // update and remove library data
+    // change category of library data
     async function setLibraryData () {
       if (game.inLibrary) {
         if (category === 'remove') {
+          // user is undefined(reading token). dont know how to solve issue
+
           // await deleteGame(game.id, user)
           //   .then(() => setGameInLibrary(false))
           //   .catch((err) => console.log(err))
-          await console.log(game)
 
-          await console.log(user)
+          // await console.log(game)
+          // await console.log(user)
         } else {
+          // await updateGame(user, { type: category })
           // await updateGame(user, game)
-          console.log(category)
         }
       }
     }
@@ -132,7 +140,7 @@ const StyledGame = styled(motion.div)`
       width: 100%;
       height: 25vh;
       object-fit: cover;
-      aspect-ratio: 16;
+      aspect-ratio: 16/9;
     }
     .icon {
       font-size: 1.2rem;
